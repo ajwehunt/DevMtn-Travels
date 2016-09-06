@@ -4,32 +4,16 @@
     <section class="package-card">
         <!-- Once we have the data we can use {{}} to bind that data to our view -->
         <!--Add the image link from the data here. Remember to put something in the alt tag, perhaps the name of the city-->
-        <img  alt="">
-        <!-- Now we can start to extract the data and bind it to our different elements here-->
-        <h6> <!--The city name goes here--> </h6>
-        <h1><!--The country name goes here--></h1>
-        <p><!--The description goes here--></p>
+        <div ng-repeat='data in datas' class='packages'>
+          <img src='{{data.image}}' alt="{{data.city}}">
+          <!-- Now we can start to extract the data and bind it to our different elements here-->
+          <h6>{{data.city}}</h6>
+          <h1>{{data.country}}</h1>
+          <p>{{data.desc}}</p>
 
         <!--You will need to make the ui-sref work. It should point to the booked state. If you look at your app.js the booked state
        is expecting an id to be passed along You can get that id from the data object that we are repeating over -->
-        <button>Book Now</button>
+        <button ui-sref="booked({id: destination.id})">Book Now</button> <!-- booked has an object parameter with id as the property, and the tied location id to its value -->
+      </div>
     </section>
 </section>
-
-
-<section class="location-card" >
-    <div class="image-container">
-        <!-- Once we have the data we can use {{}} to bind that data to our view -->
-        <!--Add the image link from the data here-->
-        <img src="" alt="">
-    </div>
-    <div class="location-inner-left">
-        <!-- Now we can start to extract the data and bind it to our different elements here-->
-        <h6> <!--The city name goes here--> </h6>
-        <h1><!--The country name goes here--></h1>
-        <p><!--The description goes here--></p>
-    </div>
-    <div class="location-inner-right">
-        <h3>Package Start At $<!--The package price goes here--></h3>
-        <!--You will need to make the ui-sref work. It should point to the booked state. If you look at your app.js the booked state
-        is expecting an id to be passed along You can get that id from the data object that we are repeating over -->
